@@ -15,6 +15,7 @@ public class camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //offset the camera by adding to tjhe player's position
         transform.position = player.transform.position + new Vector3(0,7,-18);
     }
 }
