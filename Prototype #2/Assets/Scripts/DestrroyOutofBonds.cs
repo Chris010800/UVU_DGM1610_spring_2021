@@ -22,6 +22,7 @@ public class DestrroyOutofBonds : MonoBehaviour
         }  
         else if(transform.position.z < lowerBound)
         {
+            
             Destroy(gameObject);
         }
     }
