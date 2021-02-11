@@ -16,7 +16,7 @@ public class DetectCollision : MonoBehaviour
        
         
     }
-    void OntriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     { // Destroy this object that is script is attached to
         Destroy(gameObject);
         //Destroy other Object hits a trigger
