@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 10.0f;
+    private float speed = 3;
     private Rigidbody playerRb;
-    private float zBound = 11.5f;
-    private float xBound = 19.5f;
+    private float zBound = 10f;
+    private float xBound = 21f;
     
     // Start is called before the first frame update
     void Start()
@@ -52,6 +52,26 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
             }
+        }
+    }
+     void OnCollisionEmter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy collided with Player");
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Goal"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }
