@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool gameOver;
+    
     private float speed = 3;
     private Rigidbody playerRb;
     private float zBound = 10f;
     private float xBound = 21f;
     
+    
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -54,11 +58,12 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-     void OnCollisionEmter(Collision collision)
+     void OnCollisionEmter(Collision other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy collided with Player");
+            Debug.Log("Game Over!");
+            gameOver = true;
         }
     }
 
