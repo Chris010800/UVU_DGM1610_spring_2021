@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 6.0f;
+    public bool gameOver;
+    
+    private float speed = 4.0f;
     private Rigidbody playerRb;
 
     // Start is called before the first frame update
@@ -29,5 +31,16 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+       
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemie"))
+        {
+            Debug.Log("Game over");
+            gameOver = true;   
+        }
+    }
+
 }
