@@ -5,8 +5,8 @@ using UnityEngine;
 public class move : MonoBehaviour
 {
     // Access Modifier, Data Type, Name
-    private float speed = 15.0f;
-    private float turnSpeed = 35.0f;
+    [SerializeField] private float speed = 15.0f;
+    [SerializeField] private float turnSpeed = 35.0f;
     private float hInput;
     private float fInput;
 
